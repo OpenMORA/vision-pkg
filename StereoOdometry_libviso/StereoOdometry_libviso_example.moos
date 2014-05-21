@@ -1,0 +1,55 @@
+
+ProcessConfig = ANTLER
+{
+	MSBetweenLaunches 	= 200
+	
+	Run = MOOSDB   
+	
+	Run = StereoOdometry_libviso @ NewConsole = true
+	
+	Run = RawlogPlay   @ NewConsole = true
+}
+
+ProcessConfig = MOOSDB
+{
+	// Enable webserver in MOOSDB
+	WEBSERVERPORT  = 9080
+}
+
+//------------------------------------------
+// StereoOdometry_libviso configuration block
+
+ProcessConfig = StereoOdometry_libviso
+{
+	CommsTick  = 100
+	AppTick    = 100
+	
+	// (Default="STEREO_RECT_OBS") The name of the variable with the input stream of stereo images (they must be rectified)	
+	//STEREO_RECT_VARNAME  = STEREO1_OBS
+	STEREO_RECT_VARNAME  = CAMERA1_OBS
+	
+	// (Default=false) Save dead-reckoning from visual odometry to a plain text log file.
+	SAVE_ODO = true
+	
+	//NEW_KF_MIN_XYZ  = 0.5    // (Default=0.5) Minimum linear distance (in meters) between reference KeyFrames.
+	//NEW_KF_MIN_ANG  = 25     // (Default=25) Minimum angle (degrees) between reference KeyFrames.
+	//FORZE_Z0        = true   // FORZE_Z0 (Default=false) Forze Z coordinate to be always exactly zero.
+}
+
+
+//------------------------------------------
+// RawlogPlay configuration block
+
+ProcessConfig = RawlogPlay
+{
+	CommsTick  = 1000
+	AppTick    = 1000
+
+	// (Mandatory) Path to the rawlog file to open
+	INPUT_RAWLOG = E:\Rawlogs\karlsruhe_sequences\2009_09_08_drive_0010\2009_09_08_drive_0010.rawlog
+
+	// (Default=1.0) Time warping: <1=slower than real time.
+	//TIME_WARP  = 1.0
+}
+
+

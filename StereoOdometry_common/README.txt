@@ -1,0 +1,1 @@
+This directory contains the C++ virtual base class for Stereo odometry modules.
