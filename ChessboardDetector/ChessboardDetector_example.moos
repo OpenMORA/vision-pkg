@@ -1,0 +1,50 @@
+
+ProcessConfig = ANTLER
+{
+	MSBetweenLaunches 	= 200
+	
+	Run = MOOSDB   
+	Run = ChessboardDetector
+	Run = RawlogPlay   @ NewConsole = true
+}
+
+ProcessConfig = MOOSDB
+{
+	// Enable webserver in MOOSDB
+	WEBSERVERPORT  = 9080
+}
+
+//------------------------------------------
+// ChessboardDetector configuration block
+
+ProcessConfig = ChessboardDetector
+{
+	CommsTick  = 50
+	AppTick    = 50
+	
+	// (Default="STEREO1_OBS") The name of the variable with the input stream of stereo images (they must be rectified)
+	STEREO_INPUT = STEREO1_OBS
+	
+	CHESSBOARD_NX   = 3     // (Mandatory) Chessboard params: number of corners in X
+	CHESSBOARD_NY   = 4     // (Mandatory) Chessboard params: number of corners in Y
+	CHESSBOARD_LX = 0.070   // (Mandatory) Chessboard params: distance betwwen squares in Y (in meters)
+	CHESSBOARD_LY = 0.075   // (Mandatory) Chessboard params: distance betwwen squares in X (in meters)
+}
+
+
+//------------------------------------------
+// RawlogPlay configuration block
+
+ProcessConfig = RawlogPlay
+{
+	CommsTick  = 1000
+	AppTick    = 1000
+
+	// (Mandatory) Path to the rawlog file to open
+	INPUT_RAWLOG = E:\Rawlogs\ual\2014-05-19_tests_2_chessboards\LOG_2014_05_19_10_45_34.rawlog
+
+	// (Default=1.0) Time warping: <1=slower than real time.
+	TIME_WARP  = 0.2
+}
+
+

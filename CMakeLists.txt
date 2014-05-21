@@ -20,4 +20,5 @@ FIND_PACKAGE(MORA REQUIRED)  # Import MOOS vars, MORA CMake macros,etc.
 MORA_COMMON_CMAKE() # Set common CMake options
 
 # Add modules (dir names match modules' by default)
+DEFINE_MORA_PROGRAM(ChessboardDetector)
 DEFINE_MORA_PROGRAM(StereoOdometry_libviso)
