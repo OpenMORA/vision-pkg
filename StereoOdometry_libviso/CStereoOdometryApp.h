@@ -9,6 +9,7 @@
 #define CStereoOdometryApp_H
 
 #include "../StereoOdometry_common/CBaseStereoOdometryApp.h"
+#include <mrpt/opengl/CPointCloudColoured.h>
 
 #include <viso_stereo.h>
 
@@ -34,9 +35,10 @@ protected:
 
 	double  m_new_kf_min_xyz, m_new_kf_min_ang; //!< Minimum dist. and angle to insert a new KF
 
-	bool    m_forze_z0;  
+	bool    m_forze_2d;
 
 	mrpt::gui::CDisplayWindow3DPtr m_gui;
+	mrpt::opengl::CPointCloudColouredPtr gl_ptns;
 
 	// Do the real work with each new image:
 	void processVisualStereoOdometry(const mrpt::slam::CObservationStereoImagesPtr &obs);

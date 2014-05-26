@@ -28,6 +28,9 @@ const string STEREO_INPUT_NAME = string("STEREO_INPUT");
 CBaseStereoOdometryApp::CBaseStereoOdometryApp() : 
 	m_stereo_input_var_name("STEREO_RECT_OBS")
 {
+	// Why the compiler removes the reference to the automatic registration?? (JLBC @ MAY-2014)
+	using namespace mrpt::slam;
+	mrpt::utils::registerClass( CLASS_ID(CObservationStereoImages) );
 }
 
 CBaseStereoOdometryApp::~CBaseStereoOdometryApp()

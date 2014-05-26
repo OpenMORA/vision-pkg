@@ -16,7 +16,7 @@ PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with
 libviso2; if not, write to the Free Software Foundation, Inc., 51 Franklin
-Street, Fifth Floor, Boston, MA 02110-1301, USA 
+Street, Fifth Floor, Boston, MA 02110-1301, USA
 */
 
 #ifndef VISO_STEREO_H
@@ -44,10 +44,10 @@ public:
 
   // constructor, takes as inpute a parameter structure
   VisualOdometryStereo (parameters param);
-  
+
   // deconstructor
   ~VisualOdometryStereo ();
-  
+
   // process a new images, push the images back to an internal ring buffer.
   // valid motion estimates are available after calling process for two times.
   // inputs: I1 ........ pointer to rectified left image (uint8, row-aligned)
@@ -69,7 +69,7 @@ public:
 private:
 
   std::vector<double>  estimateMotion (std::vector<Matcher::p_match> p_matched);
-  enum                 result { UPDATED, FAILED, CONVERGED };  
+  enum                 result { UPDATED, FAILED, CONVERGED };
   result               updateParameters(std::vector<Matcher::p_match> &p_matched,std::vector<int32_t> &active,std::vector<double> &tr,double step_size,double eps);
   void                 computeObservations(std::vector<Matcher::p_match> &p_matched,std::vector<int32_t> &active);
   void                 computeResidualsAndJacobian(std::vector<double> &tr,std::vector<int32_t> &active);
@@ -77,7 +77,8 @@ private:
 
   double *X,*Y,*Z;    // 3d points
   double *p_residual; // residuals (p_residual=p_observe-p_predict)
-  
+
+  public:
   // parameters
   parameters param;
 };
