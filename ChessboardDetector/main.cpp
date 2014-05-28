@@ -2,8 +2,6 @@
    |                 Open MORA (MObile Robot Arquitecture)                     |
    +---------------------------------------------------------------------------+ */
 
-#include "CChessboardDetectorApp.h" // User C++ app class 
-
 #define MORA_APP_CLASS         CChessboardDetectorApp     
 #define MORA_APP_NAME          "ChessboardDetector"    // Default MOOSApp app name
 
