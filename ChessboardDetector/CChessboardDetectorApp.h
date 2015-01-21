@@ -9,7 +9,7 @@
 #define CChessboardDetectorApp_H
 
 #include <COpenMORAMOOSApp.h>
-#include <mrpt/slam/CObservationStereoImages.h>
+#include <mrpt/obs/CObservationStereoImages.h>
 #include <mrpt/gui/CDisplayWindow3D.h>
 
 class CChessboardDetectorApp : public COpenMORAApp
@@ -40,7 +40,7 @@ protected:
 
 	mrpt::gui::CDisplayWindow3DPtr m_gui;
 
-	void processStereoImage( const mrpt::slam::CObservationStereoImagesPtr &obs);
+	void processStereoImage( const mrpt::obs::CObservationStereoImagesPtr &obs);
 
 };
 #endif

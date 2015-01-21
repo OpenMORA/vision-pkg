@@ -11,7 +11,7 @@
 
 #include <mrpt/vision/chessboard_find_corners.h>
 //#include <mrpt/slam/CObservation6DFeatures.h>
-#include <mrpt/slam/CObservationStereoImages.h>
+#include <mrpt/obs/CObservationStereoImages.h>
 #include <mrpt/opengl/CGridPlaneXY.h>
 
 #include <sstream>
@@ -21,7 +21,7 @@
 using namespace std;
 
 using namespace mrpt;
-using namespace mrpt::slam;
+using namespace mrpt::obs;
 using namespace mrpt::utils;
 
 
@@ -121,7 +121,7 @@ bool CChessboardDetectorApp::Iterate()
 			mrpt::utils::CSerializablePtr obj = this->MOOS2MRPT_deserialize(*pVar);
 			ASSERT_(obj.present())
 			// This will launch an exception if types don't match:
-			mrpt::slam::CObservationStereoImagesPtr obsStereo = mrpt::slam::CObservationStereoImagesPtr(obj);
+			mrpt::obs::CObservationStereoImagesPtr obsStereo = mrpt::obs::CObservationStereoImagesPtr(obj);
 			// Do stereo odometry:
 			try
 			{
@@ -163,7 +163,7 @@ bool CChessboardDetectorApp::OnNewMail(MOOSMSG_LIST &NewMail)
 }
 
 
-void CChessboardDetectorApp::processStereoImage( const mrpt::slam::CObservationStereoImagesPtr &obs)
+void CChessboardDetectorApp::processStereoImage( const mrpt::obs::CObservationStereoImagesPtr &obs)
 {
 	// Detect multiple-checkerboards:
 	vector<vector<TPixelCoordf> > 	listCornerCoords[2];  // 0:L, 1:R

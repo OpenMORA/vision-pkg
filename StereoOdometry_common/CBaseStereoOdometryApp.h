@@ -10,7 +10,7 @@
 
 #include <COpenMORAMOOSApp.h>
 #include <mrpt/utils/CImage.h>
-#include <mrpt/slam/CObservationStereoImages.h>
+#include <mrpt/obs/CObservationStereoImages.h>
 #include <mrpt/gui/CDisplayWindow3D.h>
 #include <mrpt/poses/CPose3D.h>
 #include <fstream>
@@ -38,7 +38,7 @@ protected:
 	std::string  m_stereo_input_var_name;  //!< MOOS var to subscribe
 
 	// Do the real work with each new image:
-	virtual void processVisualStereoOdometry(const mrpt::slam::CObservationStereoImagesPtr &obs) = 0;
+	virtual void processVisualStereoOdometry(const mrpt::obs::CObservationStereoImagesPtr &obs) = 0;
 
 };
 #endif

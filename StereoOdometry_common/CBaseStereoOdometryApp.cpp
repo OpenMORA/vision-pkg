@@ -29,7 +29,7 @@ CBaseStereoOdometryApp::CBaseStereoOdometryApp() :
 	m_stereo_input_var_name("STEREO_RECT_OBS")
 {
 	// Why the compiler removes the reference to the automatic registration?? (JLBC @ MAY-2014)
-	using namespace mrpt::slam;
+	using namespace mrpt::obs;
 	mrpt::utils::registerClass( CLASS_ID(CObservationStereoImages) );
 }
 
@@ -43,7 +43,7 @@ bool CBaseStereoOdometryApp::OnStartUp()
 	m_MissionReader.GetConfigurationParam("STEREO_RECT_VARNAME",m_stereo_input_var_name);
 
 	//! @moos_subscribe	STEREO_RECT_OBS
-	//! @moos_var STEREO_RECT_OBS Stereo images, after rectification, as mrpt::slam::CObservationStereoImages objects
+	//! @moos_var STEREO_RECT_OBS Stereo images, after rectification, as mrpt::obs::CObservationStereoImages objects
 	AddMOOSVariable(STEREO_INPUT_NAME /*var name*/, m_stereo_input_var_name /*real var name*/,m_stereo_input_var_name, 0.05 /*timeout*/); 
 
 	//! @moos_subscribe	MORA_IMAGES_DIR
@@ -89,7 +89,7 @@ bool CBaseStereoOdometryApp::Iterate()
 			mrpt::utils::CSerializablePtr obj = this->MOOS2MRPT_deserialize(*pVar);
 			ASSERT_(obj.present())
 			// This will launch an exception if types don't match:
-			mrpt::slam::CObservationStereoImagesPtr obsStereo = mrpt::slam::CObservationStereoImagesPtr(obj);
+			mrpt::obs::CObservationStereoImagesPtr obsStereo = mrpt::obs::CObservationStereoImagesPtr(obj);
 			// Do stereo odometry:
 			try
 			{

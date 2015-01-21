@@ -93,7 +93,7 @@ bool CStereoOdometryApp::OnStartUp()
 }
 
 // The main method, where visual odometry happens:
-void CStereoOdometryApp::processVisualStereoOdometry( const mrpt::slam::CObservationStereoImagesPtr &obs)
+void CStereoOdometryApp::processVisualStereoOdometry( const mrpt::obs::CObservationStereoImagesPtr &obs)
 {
 	ASSERT_(obs.present()) // Just in case
 

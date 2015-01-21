@@ -41,7 +41,7 @@ protected:
 	mrpt::opengl::CPointCloudColouredPtr gl_ptns;
 
 	// Do the real work with each new image:
-	void processVisualStereoOdometry(const mrpt::slam::CObservationStereoImagesPtr &obs);
+	void processVisualStereoOdometry(const mrpt::obs::CObservationStereoImagesPtr &obs);
 
 };
 #endif
